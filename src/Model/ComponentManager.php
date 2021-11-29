@@ -16,6 +16,7 @@ use Magewirephp\Magewire\Exception\ComponentActionException;
 use Magewirephp\Magewire\Exception\LifecycleException;
 use Magewirephp\Magewire\Component;
 use Magewirephp\Magewire\Exception\ValidationException;
+use Magewirephp\Magewire\Model\Config\Magewire as MagewireConfig;
 use Magewirephp\Magewire\Model\Context\Hydrator as HydratorContext;
 
 /**
@@ -37,10 +38,10 @@ class ComponentManager
     private $hydrationPool;
 
     /**
-     * ComponentManager constructor.
      * @param HydratorContext $hydratorContext
      * @param Resolver $localeResolver
      * @param HttpFactory $httpFactory
+     * @param MagewireConfig $magewireConfig
      * @param array $updateActionsPool
      * @param array $hydrationPool
      */
@@ -48,6 +49,7 @@ class ComponentManager
         HydratorContext $hydratorContext,
         Resolver $localeResolver,
         HttpFactory $httpFactory,
+        MagewireConfig $magewireConfig,
         array $updateActionsPool = [],
         array $hydrationPool = []
     ) {

@@ -6,4 +6,19 @@
                 type="Magewirephp\Magewire\Model\Request"/>
     <preference for="Magewirephp\Magewire\Model\ResponseInterface"
                 type="Magewirephp\Magewire\Model\Response"/>
+
+    <virtualType name="Magewirephp\Magewire\Config\Reader\Magewire" type="Magento\Framework\Config\Reader\Filesystem">
+        <arguments>
+            <argument name="converter" xsi:type="object">Magewirephp\Magewire\Model\Config\Magewire\Converter</argument>
+            <argument name="schemaLocator" xsi:type="object">Magewirephp\Magewire\Model\Config\Magewire\SchemaLocator</argument>
+            <argument name="fileName" xsi:type="string">magewire.xml</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magewirephp\Magewire\Model\Config\Magewire">
+        <arguments>
+            <argument name="reader" xsi:type="object">Magewirephp\Magewire\Config\Reader\Magewire</argument>
+            <argument name="cacheId" xsi:type="string">magewirephp_magewire_config</argument>
+        </arguments>
+    </type>
 </config>
